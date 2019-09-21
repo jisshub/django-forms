@@ -1,0 +1,62 @@
+Django Forms
+----------------
+
+
+create forms.py file in app folder
+
+from django import forms
+
+
+class PersonForm(forms.Form):
+    name = forms.CharField()
+    email = forms.EmailField()
+    verify_email = forms.EmailField(label='Enter Email: ')
+    text = forms.CharField(widget=forms.Textarea)
+
+
+later in view.py
+
+def forms_view(request):
+    # create an instance of Form class
+    form = forms.PersonForm()
+    # render form to html while pass that instance as a key:value pair
+    return render(request, 'formsapp/forms.html', {'form': form})
+
+
+
+in forms.html
+------------------
+
+<form>
+    {{form}}
+</form>
+
+{{ form.as_table }} will render them as table cells wrapped in <tr> tags
+{{ form.as_p }} will render them wrapped in <p> tags
+{{ form.as_ul }} will render them wrapped in <li> tags
+
+
+pulling data from frontend to backend
+--------------------------------------------
+post - submit data to server
+
+so here v use post method,
+
+specify post method in form tag.
+
+
+views.py
+-------------
+
+
+csrf tokens
+-----------
+cross site request forgery,
+
+always specify it while v specify methods(post/get) in forms
+
+example
+<form method='post'> {% csrf_token %}
+</form>
+
+
