@@ -6,7 +6,6 @@ from .models import Employee
 from django.contrib import messages
 
 
-
 # Create your views here.
 
 def index(request):
@@ -39,5 +38,5 @@ def emp_view(request):
             # these fields are created in models.py
             emp = Employee(empname=empname, salary=salary, designation=desgin)
             emp.save()
-            messages.add_message(request, messages.INFO, 'Hello world.')
+            messages.success(request, 'Details Saved')
     return render(request, 'formsapp/info.html', {'empform': empform})

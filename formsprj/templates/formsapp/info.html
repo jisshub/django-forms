@@ -18,9 +18,35 @@
 
                  <button type="submit" class="btn btn-primary">Submit</button>
 
+
             </form>
 
-    </div>
+              <div class="alert alert-success alert-dismissible fade show mt-4" role="alert">
+                  {% if messages %}
+                  <div class="messages">
+                    <strong
+                        {% for i in messages %}
+                            {% if i.tags %}
+                        class="{{i.tags}}"
 
+                            {% endif %}>
+                        {{i}}
+                        {% endfor %}
+
+                    </strong>
+                  {% endif %}
+
+
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+
+        </div>
+
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
 </html>

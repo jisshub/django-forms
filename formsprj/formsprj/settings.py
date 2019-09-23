@@ -115,4 +115,5 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+# Messages
 MESSAGE_STORAGE = 'django.contrib.messages.storage.cookie.CookieStorage'
